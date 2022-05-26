@@ -18,6 +18,7 @@ from housing_price.logger import configure_logger
 
 def parse_args() -> Namespace:
     """Commandline argument parser for standalone run.
+
     Returns
     -------
     arparse.Namespace
@@ -59,10 +60,12 @@ def parse_args() -> Namespace:
 
 def load_data(path: str) -> tuple[pd.DataFrame, pd.Series]:
     """Loads dataset and splits features and labels.
+
     Parameters
     ----------
     path : str
         Path to training dataset csv file.
+
     Returns
     -------
     tuple[pd.DataFrame, pd.Series]
@@ -77,16 +80,19 @@ def load_data(path: str) -> tuple[pd.DataFrame, pd.Series]:
 
 def load_models(path: str) -> list[sklearn.base.BaseEstimator]:
     """Loads models from given directory path.
+
     Parameters
     ----------
     path : str
         Path to directory with model pkl files.
+
     Returns
     -------
     list[sklearn.base.BaseEstimator]
         List of models loaded from pkl files in directory.
     """
     paths = glob(f"{path}/*.pkl")
+    paths = sorted(paths)
     models = []
 
     for path in paths:
@@ -104,6 +110,7 @@ def score_model(
     args: Namespace,
 ) -> dict:
     """Scores given model on given data.
+
     Parameters
     ----------
     model : sklearn.base.BaseEstimator
@@ -114,10 +121,12 @@ def score_model(
         Ground truth labels.
     args : Namespace
         Command line arguments. Used to determine which scores to calculate.
+
     Returns
     -------
     dict
         Contains calculated scores.
+
     """
     scores = {}
     scores["R2 score"] = model.score(X, y)
@@ -136,6 +145,7 @@ def score_model(
 
 def run(args: Namespace, logger: Logger) -> None:
     """Runs the whole scoring process according to the given commandline arguments.
+
     Parameters
     ----------
     args : Namespace

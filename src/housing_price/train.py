@@ -19,6 +19,7 @@ from housing_price.logger import configure_logger
 
 def parse_args() -> Namespace:
     """Commandline argument parser for standalone run.
+
     Returns
     -------
     arparse.Namespace
@@ -55,10 +56,12 @@ def parse_args() -> Namespace:
 
 def load_data(path: str) -> tuple[pd.DataFrame, pd.Series]:
     """Loads dataset and splits features and labels.
+
     Parameters
     ----------
     path : str
         Path to training dataset csv file.
+
     Returns
     -------
     tuple[pd.DataFrame, pd.Series]
@@ -75,12 +78,14 @@ def save_model(
     model: sklearn.base.BaseEstimator, dir: str
 ) -> tuple[str, str]:
     """Saves the given model in given directory as pickle file.
+
     Parameters
     ----------
     model : sklearn.base.BaseEstimator
         Estimator to save.
     dir : str
         Directory to save in.
+
     Returns
     -------
     tuple[str, str]
@@ -98,6 +103,7 @@ def save_model(
 
 def run(args: Namespace, logger: Logger) -> None:
     """Runs the whole training process according to given commandline arguments.
+
     Parameters
     ----------
     args : Namespace
