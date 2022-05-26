@@ -23,7 +23,9 @@ def configure_logger(
     logger=None, cfg=None, log_file=None, console=True, log_level="DEBUG"
 ):
     """Function to setup configurations of logger through function.
+
     The individual arguments of `log_file`, `console`, `log_level` will overwrite the ones in cfg.
+
     Parameters
     ----------
             logger:
@@ -37,6 +39,7 @@ def configure_logger(
             log_level: str
                     One of `["INFO","DEBUG","WARNING","ERROR","CRITICAL"]`
                     default - `"DEBUG"`
+
     Returns
     -------
     logging.Logger

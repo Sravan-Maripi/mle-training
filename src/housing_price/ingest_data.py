@@ -18,6 +18,7 @@ from housing_price.logger import configure_logger
 
 def parse_args() -> Namespace:
     """Commandline argument parser for standalone run.
+
     Returns
     -------
     arparse.Namespace
@@ -50,6 +51,7 @@ def parse_args() -> Namespace:
 
 def fetch_housing_data(housing_url: str, housing_path: str) -> None:
     """Function to download and extract housing data.
+
     Parameters
     ----------
     housing_url : str
@@ -70,10 +72,12 @@ def stratified_shuffle_split(
     base_df: pd.DataFrame,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Does stratified shuffle split on "income_cat" attribute of housing data.
+
     Parameters
     ----------
     base_df : pd.DataFrame
         The dataframe to be split.
+
     Returns
     -------
     tuple[pd.DataFrame, pd.DataFrame]
@@ -101,6 +105,7 @@ def pre_process_data(
 ) -> tuple[pd.DataFrame, SimpleImputer]:
     """Preprocesses the given dataframe. Imputes missing values with median.
     Replaces categorical column "ocean_proximity" with onehot dummy variables.
+
     Parameters
     ----------
     df : pd.DataFrame
@@ -108,6 +113,7 @@ def pre_process_data(
     imputer : SimpleImputer, optional
         Imputer that imputes missing values, by default None.
         If None, new imputer is created and fit to the given dataframe.
+
     Returns
     -------
     tuple[pd.DataFrame, SimpleImputer]
@@ -133,6 +139,7 @@ def pre_process_data(
 def run(args: Namespace, logger: Logger) -> None:
     """Does all the ingesting work (fetching, splitting, preprocessing).
     Gets called if this module is run standalone.
+
     Parameters
     ----------
     args : Namespace
